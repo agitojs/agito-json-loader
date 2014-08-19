@@ -1,0 +1,36 @@
+language: node_js
+node_js:
+- '0.10'
+
+
+addons:
+  code_climate:
+    repo_token:
+      secure: OPC43ias/LBeCflqxQAisVzC/JPSolrMLAbSbRShWAngG5TWX5lClbp8htD6BgvU3MAPONA1f1oBDo7TWZLHQsNDPRYRzhPG49ochXKoJzmlBIlqnwUitcxrt97NWMjP5fl6dez0kdQAphjOnX+bWcZ/j8SWqtqIU4zwyY15KfA=
+
+
+before_install:
+  - npm install -g npm
+  - npm install -g codeclimate-test-reporter
+
+install:
+  - npm install
+
+script:
+  - npm run test
+
+after_success:
+  - npm run cover-lcov
+  - codeclimate < ./coverage/lcov.info
+
+
+deploy:
+  provider: npm
+  email: aymeric@beaumet.me
+  api_key:
+    secure: hhLLSmks10XtfRTetsQNyNahCl/VN1GkX4TgEXTIpWZ9QWzp2UuA2emSPH5LButw/TYmEBFoMKrxi/GGGCi0NSxcyDVjjDRjo+VyQcJML+atkwF20YmMZ12CpG+aSs3mQLZQLXKWtPYj0gR9tNnEh3sRYX0XkRxKDdLDC+4//xs=
+  on:
+    repo: agitojs/agito-json-loader
+    #on: master
+    all_branches: true # Travis issue, should not be necessary
+    tags: true

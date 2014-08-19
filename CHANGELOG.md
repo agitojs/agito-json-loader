@@ -1,0 +1,3 @@
+canary:
+
+  - can load triggers
