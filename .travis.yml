@@ -6,8 +6,7 @@ node_js:
 addons:
   code_climate:
     repo_token:
-      # CODECLIMATE_REPO_TOKEN
-      secure: f9igQcXZoWEEXJg30uSRE3FQiIZ3KoQab2Myo/ye6rpauuSVCKfelLyaNwx5A/a1XuGrL0pnHiRD11+h1lDcGbFVmEc08J0Ah7e9MQQGNWZ/Gg6lkPl56y/uwNSJHVDLHW/yPjSIFMM5KQ0EPlpvroLIbjqg9LUFezgi4YtG8d0=
+      secure: OPC43ias/LBeCflqxQAisVzC/JPSolrMLAbSbRShWAngG5TWX5lClbp8htD6BgvU3MAPONA1f1oBDo7TWZLHQsNDPRYRzhPG49ochXKoJzmlBIlqnwUitcxrt97NWMjP5fl6dez0kdQAphjOnX+bWcZ/j8SWqtqIU4zwyY15KfA=
 
 
 before_install:
