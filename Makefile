@@ -4,6 +4,7 @@ JSCS ?= ./node_modules/.bin/jscs
 JSHINT ?= ./node_modules/.bin/jshint
 MOCHA ?= ./node_modules/.bin/mocha
 _MOCHA ?= ./node_modules/.bin/_mocha
+NPM ?= npm
 
 # Options
 ISTANBUL_FLAGS ?=
@@ -18,7 +19,10 @@ JS_TEST := test/
 
 # Targets
 
-all: lint test
+all: node_modules lint test
+
+node_modules: ./node_modules/
+	@$(NPM) install
 
 lint: $(JS_LIB) $(JS_TEST)
 	$(JSHINT) $(JSHINT_FLAGS) $^
