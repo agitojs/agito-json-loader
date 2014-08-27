@@ -21,23 +21,23 @@ JS_TEST := test/
 
 all: node_modules lint test
 
-node_modules: ./node_modules/
+node_modules:
 	@$(NPM) install
 
 lint: $(JS_LIB) $(JS_TEST)
-	$(JSHINT) $(JSHINT_FLAGS) $^
-	$(JSCS) $(JSCS_FLAGS) $^
+	@$(JSHINT) $(JSHINT_FLAGS) $^
+	@$(JSCS) $(JSCS_FLAGS) $^
 
 test: $(JS_TEST)
-	$(MOCHA) $(MOCHA_FLAGS) --bail $^
+	@$(MOCHA) $(MOCHA_FLAGS) --bail $^
 
 tdd: $(JS_TEST)
-	$(MOCHA) $(MOCHA_FLAGS) --watch --growl $^
+	@$(MOCHA) $(MOCHA_FLAGS) --watch --growl $^
 
 cover: $(JS_TEST)
-	$(ISTANBUL) $(ISTANBUL_FLAGS) cover $(_MOCHA) -- $(MOCHA_FLAGS) $^
+	@$(ISTANBUL) $(ISTANBUL_FLAGS) cover $(_MOCHA) -- $(MOCHA_FLAGS) $^
 
 cover-lcov: $(JS_TEST)
-	$(ISTANBUL) $(ISTANBUL_FLAGS) cover $(_MOCHA) --report lcovonly -- $(MOCHA_FLAGS) $^
+	@$(ISTANBUL) $(ISTANBUL_FLAGS) cover $(_MOCHA) --report lcovonly -- $(MOCHA_FLAGS) $^
 
 .PHONY: all lint test tdd cover cover-lcov
