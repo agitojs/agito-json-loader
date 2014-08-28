@@ -25,7 +25,7 @@ agito()
     action: {
       name: 'http-redirect',
       options: {
-        destination: 'https://localhost:443'
+        target: 'https://localhost:443'
       }
     }
   }))
